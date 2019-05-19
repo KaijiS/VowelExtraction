@@ -28,7 +28,3 @@ HELP.md
 
 ### VS Code ###
 .vscode/
-
-### properties ###
-/src/main/resource/application.properties
-/src/main/resource/oauth.properties
