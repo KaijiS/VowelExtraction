@@ -183,9 +183,6 @@ export default {
     overflow: hidden;
     position: relative;
     padding: 1em;
-    border: 1px solid #dd0000;
-    background: #dd0000;
-    color:#fff;
 }
 
 .file input[type="file"] {
