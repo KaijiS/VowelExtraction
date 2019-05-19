@@ -10,4 +10,9 @@ public class PropertiesConfiguration {
     public OAuthConfig oauthConfig() {
         return new OAuthConfig();
     }
+
+    @Bean
+    public WebFrontConfig webFrontConfig() {
+        return new WebFrontConfig();
+    }
 }

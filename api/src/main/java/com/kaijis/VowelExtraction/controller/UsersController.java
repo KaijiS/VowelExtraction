@@ -5,6 +5,7 @@ import com.github.scribejava.core.model.OAuthRequest;
 import com.github.scribejava.core.model.Response;
 import com.github.scribejava.core.model.Verb;
 import com.github.scribejava.core.oauth.OAuth20Service;
+import com.kaijis.VowelExtraction.config.WebFrontConfig;
 import com.kaijis.VowelExtraction.controller.response.error.ResponseError;
 import com.kaijis.VowelExtraction.controller.response.users.ResponseOAuthLogin;
 import com.kaijis.VowelExtraction.controller.response.users.ResponseToken;
@@ -47,6 +48,9 @@ public class UsersController {
 
   @Autowired
   MessageSource messagesource;
+
+  @Autowired
+  private WebFrontConfig webFrontConfig;
 
   public UsersController(UsersService usersService, OriginalFilesService originalFilesService, VowelsService vowelsService) {
     this.usersService =         usersService;
@@ -179,7 +183,7 @@ public class UsersController {
       newUser.setOneTimeToken(onetimetoken);
       newUser.setExpirationTimeOfOneTime(onetime_str);
       usersService.save(newUser);
-      responseForRedirect.sendRedirect("http://localhost:3000/Session?onetimetoken=" + onetimetoken);
+      responseForRedirect.sendRedirect(webFrontConfig.getOneTimeTokenUrl() + onetimetoken);
       return;
     }
 
@@ -190,7 +194,7 @@ public class UsersController {
     existence_user.setOneTimeToken(onetimetoken);
     existence_user.setExpirationTimeOfOneTime(onetime_str);
     usersService.save(existence_user);
-    responseForRedirect.sendRedirect("http://localhost:3000/Session?onetimetoken=" + onetimetoken);
+    responseForRedirect.sendRedirect(webFrontConfig.getOneTimeTokenUrl() + onetimetoken);
     return;
 
   }
