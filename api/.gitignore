@@ -30,5 +30,5 @@ HELP.md
 .vscode/
 
 ### properties ###
-./src/main/resource/application.properties
-./src/main/resource/oauth.properties
+/src/main/resource/application.properties
+/src/main/resource/oauth.properties
